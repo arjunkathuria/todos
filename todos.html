@@ -1,32 +1,37 @@
 <head>
-	<title>Todos</title>
+    <title>Todos</title>
 </head>
- <body>
- <div class="container">
-     {{> todos}}
- </div>
- </body>
+
+<body>
+    <div class="container">
+        {{> todos}}
+    </div>
+</body>
 
 <!-- main structure ends -->
 
 <template name="addTodo">
-	<form>
-		Create a Todo Item:
-		<input type="text" placeholder="type any Todo task" name="todoName">
-	</form>
+    <form>
+        Create a Todo Item:
+        <input type="text" placeholder="type any Todo task" name="todoName">
+    </form>
 </template>
 
 <template name="todoItem">
-	<li>{{name}} [<a href="#" class="todo-delete btn">Delete</a>]</li>
+    <li>
+        <input type="checkbox">
+        <input type="text" name="todoItem" value="{{name}}"> [
+        <a href="#" class="todo-delete btn">Delete</a>]
+    </li>
 </template>
 
 <template name="todos">
-	{{> addTodo}}
-	<ul>
-		{{#each todo}}
-		
-			<li>{{> todoItem}}</li>
-		
-		{{/each}}
-	</ul>	
+    {{> addTodo}}
+    <ul>
+        {{#each todo}}
+
+            <li>{{> todoItem}}</li>
+
+        {{/each}}
+    </ul>
 </template>
