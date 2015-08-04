@@ -1,10 +1,11 @@
 <head>
 	<title>Todos</title>
 </head>
-
-<body >
-	{{> todos}}
-</body>
+ <body>
+ <div class="container">
+     {{> todos}}
+ </div>
+ </body>
 
 <!-- main structure ends -->
 
@@ -16,7 +17,7 @@
 </template>
 
 <template name="todoItem">
-	<li>{{name}} [<a href="#" class="todo-delete">Delete</a>]</li>
+	<li>{{name}} [<a href="#" class="todo-delete btn">Delete</a>]</li>
 </template>
 
 <template name="todos">

@@ -5,28 +5,29 @@ if (Meteor.isClient) {
     todo: function(){
       return Todos.find({},{sort: {createdAt: -1}});
     }
-  })
+  });
 
   Template.addTodo.events({
     'submit form': function (event) {
       event.preventDefault();
-      var todoName=$('[name="todoName"]').val()
+      var todoName=$('[name="todoName"]').val();
       Todos.insert({
         'name': todoName,
         'completed':false,
         'createdAt': new Date()
-      }); 
+      });
 
+      //noinspection JSDuplicatedDeclaration
       var todoName=$('[name="todoName"]').val('')
 
     }
-  })
+  });
 
   Template.todoItem.events({
     'click .todo-delete': function (event) {
       event.preventDefault();
       var documentId = this._id;
-      var confirm = window.confirm("You sure bruh ?")
+      var confirm = window.confirm("You sure bruh ?");
       if (confirm){
 
         Todos.remove({_id: documentId}) ;
