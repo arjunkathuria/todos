@@ -10,6 +10,13 @@
 
 <!-- main structure ends -->
 
+<template name="todosCount">
+    {{#if totalTodos}}
+  <p>  you have completed {{completedTodos}} tasks from a total of {{totalTodos}}</p>
+
+    {{/if}}
+</template>
+
 <template name="addTodo">
     <form>
         Create a Todo Item:
@@ -34,4 +41,7 @@
 
         {{/each}}
     </ul>
+
+    {{> todosCount}}
+
 </template>

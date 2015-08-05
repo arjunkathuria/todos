@@ -67,6 +67,15 @@ if (Meteor.isClient) {
             }
         }
     });
+
+    Template.todosCount.helpers({
+      'totalTodos': function(event){
+        return Todos.find().count();
+      },
+      'completedTodos': function(){
+        return Todos.find({completed: true}).count();
+      }
+    });
 }
 
 if (Meteor.isServer) {
