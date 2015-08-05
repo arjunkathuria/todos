@@ -18,8 +18,8 @@
 </template>
 
 <template name="todoItem">
-    <li>
-        <input type="checkbox">
+    <li class={{checked}}>
+        <input type="checkbox" {{checked}}>
         <input type="text" name="todoItem" value="{{name}}"> [
         <a href="#" class="todo-delete btn">Delete</a>]
     </li>
