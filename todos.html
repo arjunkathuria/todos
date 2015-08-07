@@ -1,14 +1,28 @@
-<head>
-    <title>Todos</title>
-</head>
+<template name="home">
+<h2>welcome to the future</h2>
+</template>
 
-<body>
-    <div class="container">
-        {{> todos}}
-    </div>
-</body>
+<template name="main">
+  <h1>Todos</h1>
+    {{> navigation}}
+     <div class="container">
+    {{> yield}}
+     </div>
+  <hr />
+  <p>
+    Copyright (c) 2015 Copyright Holder All Rights Reserved. Arjun
+  </p>
+</template>
 
 <!-- main structure ends -->
+
+<template name="navigation">
+  <ul>
+    <li><a href="{{pathFor route='home'}}">Home</a></li>
+    <li><a href="{{pathFor route='register'}}">Register</a></li>
+    <li><a href="{{pathFor route='login'}}">Login</a></li>
+  </ul>
+</template>
 
 <template name="todosCount">
     {{#if totalTodos}}
@@ -44,4 +58,14 @@
 
     {{> todosCount}}
 
+</template>
+
+<!--todo template ends    -->
+
+<template name="register">
+  <h2>Register page</h2>
+</template>
+
+<template name="login">
+  <h2>Login page</h2>
 </template>

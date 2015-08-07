@@ -77,7 +77,24 @@ if (Meteor.isClient) {
       }
     });
 }
+// client side ends \\
+
 
 if (Meteor.isServer) {
     //server side code goes here
 }
+
+//server side ends \\
+
+Router.route('/register');
+Router.route('/login');
+
+Router.route('/',{
+  name: 'home',
+  template: 'home'
+});
+
+
+Router.configure({
+  layoutTemplate: 'main'
+});
