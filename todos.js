@@ -1,4 +1,6 @@
 Todos = new Meteor.Collection('todos');
+Lists = new Meteor.Collection('lists');
+
 
 if (Meteor.isClient) {
     Template.todos.helpers({
@@ -76,6 +78,23 @@ if (Meteor.isClient) {
         return Todos.find({completed: true}).count();
       }
     });
+
+    Template.addList.events({
+      'submit form':function (event) {
+        event.preventDefault();
+        var listName = $('[name=listName]').val();
+        Lists.insert({
+          name:listName
+        });
+        $('[name=listName]').val('');
+      }
+    });
+
+    Template.lists.helpers({
+      'list':function(){
+        return Lists.find({},{sort: {name: 1}});
+      },
+    })
 }
 // client side ends \\
 
@@ -88,12 +107,19 @@ if (Meteor.isServer) {
 
 Router.route('/register');
 Router.route('/login');
+Router.route('/list/:_id',{
+  template: 'listsPage',
+  data: function(){
+    var currentList = this.params._id;
+    return Lists.findOne({_id: currentList});
+  },
+});
+
 
 Router.route('/',{
   name: 'home',
   template: 'home'
 });
-
 
 Router.configure({
   layoutTemplate: 'main'

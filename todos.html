@@ -5,6 +5,7 @@
 <template name="main">
   <h1>Todos</h1>
     {{> navigation}}
+    {{> lists}}
      <div class="container">
     {{> yield}}
      </div>
@@ -12,6 +13,17 @@
   <p>
     Copyright (c) 2015 Copyright Holder All Rights Reserved. Arjun
   </p>
+</template>
+
+<template name="lists">
+  <h2>Lists</h2>
+  {{> addList}}
+  <ul>
+    {{#each list}}
+      <li><a href="/list/{{_id}}">{{name}}</a></li>
+    {{/each}}
+  </ul>
+
 </template>
 
 <!-- main structure ends -->
@@ -68,4 +80,16 @@
 
 <template name="login">
   <h2>Login page</h2>
+</template>
+
+<!--  -->
+<template name="addList">
+  <form>
+    <input type="text" name="listName" placeholder="Add a List">
+  </form>
+</template>
+
+<template name="listsPage">
+  <h2>Tasks:{{name}}</h2>
+  {{> todos}}
 </template>
